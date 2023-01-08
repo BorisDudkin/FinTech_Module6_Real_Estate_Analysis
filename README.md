@@ -1,10 +1,10 @@
 # Real Estate Analyser
 
-### Real Estate Analyser proides investors with data visualization techniques, including aggregation, interactive visualizations, and geospatial analysis, to find properties in the San Francisco market that are viable investment opportunities. This tool can be used to analyse potential real estate investment opportunities in any other locations too.
+### Real Estate Analyser proides investors with data visualization techniques, including aggregation, interactive visualizations, and geospatial analysis, to find properties that are viable investment opportunities in the San Francisco market. This tool can be used to explore and detect potential real estate investment opportunities in any other locations too.
 
 ---
 
-![RealEstate](Images/real_estate.png)
+![RealEstate](Images/rental.jpg)
 
 ---
 
@@ -30,24 +30,9 @@ _Prerequisites_
 
 - [pandas](https://github.com/pandas-dev/pandas) - For the documentation, installation guide and dependencies.
 
-- [matplotlib ](https://matplotlib.org/) - For guidance on how to start visualization, interactive visualization, styles and layouts customazation.
+2. PyViz is a Python visualization package that provides a single platform for accessing multiple visualization libraries. Two of these libraries are hvPlot and GeoViews.<br/> The [hvPlot ](https://hvplot.holoviz.org/) and [GeoViews ](https://geoviews.org/) libraries are visualization libraries that are designed to work with Pandas DataFrames and that we can use to create interactive plots for our data.
 
-2. Python modules and libraries to facilitate API requests:
-
-- Requests: The Python Requests library helps you access data via APIs.
-
-- JSON: This library puts the response (that is, the data) from an API into a human-readable format.
-
-  The Requests and JSON libraries get installed with Anaconda. To verify, in Terminal type:
-
-```python
-conda list requests
-conda list json
-```
-
-3. Python-dotenv Library is used to interact with APIs. With the python-dotenv library, you can read key-value pairs from an environment file (.env) and add them as environment variables.
-
-4. Alpaca is an API for stock trading. With the Alpaca SDK, you can interact with the Alpaca API. Sign up for the Alpaca API Key and Secret Keys at https://app.alpaca.markets/signup
+- [PyViz ](https://pyviz.org/) - For guidance on how to start visualization, interactive visualization, styles and layouts customazation.
 
 ---
 
@@ -73,23 +58,18 @@ pip install pandas
 conda install pandas
 ```
 
-If Requests and JSON libraries are missing, in Terminal run:
+To install PyViz, in Terminal run:
 
 ```python
-conda install -c anaconda requests
-conda install -c jmcmurray json
+# conda
+conda install -c pyviz hvplot geoviews
 ```
 
-To install the python-dotenv Library, in Terminal run:
+Confirm the installation of all the PyViz packages by running the following commands in Terminal type:
 
 ```python
-pip install python-dotenv
-```
-
-To Install the Alpaca SDK, in Terminal run:
-
-```python
-pip install alpaca-trade-api
+ conda list hvplot
+ conda list geoviews
 ```
 
 ---
@@ -98,45 +78,24 @@ pip install alpaca-trade-api
 
 > Application summary<br/>
 
-Fiancial Planner consists of two financial analysis tools:
+Real Estate Analyser assists proptech companies with vizualisation techniques to assess the availability of "buy-and-rent" properties in the selected locations (in our example San Francisco and its neighborhoods) by:
 
-1. **A financial planner for emergencies.**<br/>The fund owners (memeber of the union in our example) will be able to use this tool to visualize their current savings:<br/>
-   ![Composition2](Images/Portf_comp.PNG)
-   ![Composition](Images/Composition.PNG)
+1. Analysing the trends in housing units over a selected time period in the selected location:<br/>
+   ![Housing_Units](Images/zoomed-housing-units-by-year.png)<br/>
 
-The members can then determine if they have enough reserves for an emergency fund by comparing the value of their portfolio to the emergency reserves threshold amount.
-
-2. **A financial planner for retirement.** <br/>This tool will forecast the performance of members' retirement portfolio for different time horizons (in 30 and 10 years in our example) and for different asset allocations. To do this, the tool will make an Alpaca API call via the Alpaca SDK to get historical price data for use in Monte Carlo simulations. Monte Carlo simulation will calculate the range of possible outcomes based on your asset mix, chosen investment horizon and a number of simulation runs.<br/> The application users will be presented with:
-
-- `Simulation outcomes:`<br/>
-  30Y:<br/>
-  ![30ySim](Images/MC_30year_sim_plot.png)<br/>
-
-  10Y:<br/>
-  ![10ySim](Images/MC_10year_sim_plot.png)
-
-- `Probability distribution of the Monte Carlo simulation`:<br/>
-  30Y:<br/>
-  ![30yDis](Images/MC_30year_dist_plot.png)<br/>
-
-  10Y:<br/>
-  ![10yDis](Images/MC_10year_dist_plot.png)
-
-- `The summary statistics that you generated from the Monte Carlo simulation:`<br/>
-  30Y:<br/>
-  ![30yDis](Images/30y_Stats.PNG)<br/>
-  10y:<br/>
-  ![10yDis](Images/10y_Stats.PNG)
-  <br/>
-
-Those statistics will help to detemine the optimal allocation mix and investement horizon of the fund holders.
+2. Plotting and analysing the gross rent and sale price per square foot over the selected time period in the location of interest:<br/>
+   ![Rent_Sale](Images/avg-sale-px-sq-foot-gross-rent.png)<br/>
+   and further exploring the average sale price per square foot and rental income by neighborhood.:<br/>
+   ![Rent_Sale_hood](Images/pricing-info-by-neighborhood.png)<br/>
+3. Building an interactive neighborhood map and exploring the geospatial relationships in the data by using interactive visualizations with hvPlot and GeoViews. :<br/>
+   ![Rent_Sale_interactive](Images/6-4-geoviews-plot.png)<br/>
 
 > Getting started<br/>
 
-- To use the Financial Planner application first clone the repository to your PC. The repository comes with **financial_planning_tools.ipynb** application and `MCForecastTools.py` needed to run the application <br/>
+- To use the Real Estate Analyser first clone the repository to your PC.<br/>
 - Open `Jupyter lab` as per the instructions in the [Installation Guide](#installation-guide) to run the application.<br/>
 
-  At the very end of the application you can find a summary and conclusion drawn based on the simulation results. It can serve as a sample for your analysis.
+  At the very end of the application you can find a summary and conclusion drawn based on the generated vizualisations. It can serve as a sample for your analysis.
 
 ---
 
@@ -154,3 +113,5 @@ Boris Dudkin:
 ## License
 
 MIT
+
+---
