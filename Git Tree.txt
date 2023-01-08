@@ -1,0 +1,8 @@
+* 	 (HEAD -> main) analyser cand README completed
+* 	 (origin/main, origin/HEAD) Summary section updated in the analyser
+* 	 Summary section added to the analyser
+* 	 Rental Analyser completed
+* 	 Average Slaes Price by Neighbourhood section added to the Analyser
+* 	 Section Housing Units per Year completed
+* 	 inital upload + README introduction section
+* 	 Initial commit
